@@ -86,7 +86,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-x-4 top-24 z-[65] lg:hidden bg-white rounded-3xl shadow-2xl border border-slate-100 p-6 flex flex-col gap-6"
+            className="fixed inset-x-4 top-24 z-[65] lg:hidden bg-white rounded-xl shadow-2xl border border-slate-100 p-6 flex flex-col gap-6"
           >
             {navLinks.map((link) => (
               <Link
