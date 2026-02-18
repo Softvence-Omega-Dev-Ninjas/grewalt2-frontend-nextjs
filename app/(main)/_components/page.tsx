@@ -1,4 +1,5 @@
 import HomeBanner from "./banner/HomeBanner";
+import ContactSection from "./contactUs/ContactSection";
 import Expertise from "./Expertise/Expertise";
 import Solutions from "./solution/Solutions";
 import StatsSection from "./stats/StatsSection";
@@ -10,6 +11,7 @@ const HomePage = () => {
       <Expertise />
       <StatsSection />
       <Solutions />
+      <ContactSection />
     </div>
   );
 };
