@@ -163,9 +163,7 @@ const ContactFormCard = () => {
             {loading ? "Sending Enquiry..." : "Submit Enquiry"}
           </button>
 
-          <div className="w-full h-[1px] bg-slate-100 mt-12 mb-6" />
-
-          <p className="text-[13px] text-slate-400 leading-relaxed">
+          <p className="text-[13px] mt-4 text-slate-400 leading-relaxed">
             Tip: If you&apos;re a candidate, include your LinkedIn and target
             roles. If you&apos;re a client, include scope and timeline.
           </p>

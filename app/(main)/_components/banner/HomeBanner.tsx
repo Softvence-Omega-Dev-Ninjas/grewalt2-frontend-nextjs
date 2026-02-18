@@ -89,16 +89,16 @@ const HomeBanner = () => {
           </span>
         </div>
 
-        {/* Title - এটি স্ক্রল করলে আবার অ্যানিমেশন হবে */}
+        {/* Title - */}
         <h1
           data-aos="fade-up"
-          className="text-6xl md:text-[92px] font-bold text-[#05183D] leading-[0.95] mb-8 tracking-tighter pointer-events-auto"
+          className="text-6xl md:text-[80px] font-bold text-[#05183D]  mb-8  pointer-events-auto"
           style={{ fontFamily: "var(--font-bomstad), sans-serif" }}
         >
           Build World-Class AI & <br /> Blockchain Teams. Faster.
         </h1>
 
-        {/* Subtext - এটিও স্ক্রল করলে আবার হবে */}
+        {/* Subtext - */}
         <p
           data-aos="fade-up"
           data-aos-delay="200"
