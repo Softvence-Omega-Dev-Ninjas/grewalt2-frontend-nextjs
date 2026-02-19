@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation"; // 1. Import usePathname
+import { usePathname, useRouter } from "next/navigation"; // 1. Import usePathname
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "@/public/images/logo.png";
@@ -10,6 +10,7 @@ import logo from "@/public/images/logo.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname(); // 2. Initialize the hook
+const route = useRouter()
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -73,6 +74,7 @@ const Navbar = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => route.push("/contact")}
               className="hidden sm:block relative overflow-hidden bg-gradient-to-r from-[#6FDEF7] to-[#2F8BDD] text-white px-8 py-2.5 rounded-xl font-bold text-base shadow-[0_10px_20px_-5px_rgba(47,139,221,0.3)] cursor-pointer group"
             >
               <span className="relative z-10">Contact</span>
@@ -115,7 +117,10 @@ const Navbar = () => {
                 </Link>
               );
             })}
-            <button className="w-full bg-gradient-to-r from-[#6FDEF7] to-[#2F8BDD] text-white py-4 rounded-2xl font-bold text-lg">
+            <button
+              onClick={() => route.push("/contact")}
+              className="w-full bg-gradient-to-r from-[#6FDEF7] to-[#2F8BDD] text-white py-4 rounded-2xl font-bold text-lg"
+            >
               Contact Us
             </button>
           </motion.div>
