@@ -1,6 +1,7 @@
 "use client";
 // import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface SolutionCardProps {
   title: string;
@@ -21,6 +22,7 @@ const SolutionCard = ({
   delay,
   index,
 }: SolutionCardProps) => {
+  const route = useRouter()
   return (
     <div
       data-aos="fade-up"
@@ -81,7 +83,10 @@ const SolutionCard = ({
       </div>
 
       {/* CTA Button */}
-      <button className="w-fit flex items-center gap-2 px-6 py-3.5 rounded-lg border border-[#2F8BDD]/20 text-[#2F8BDD] font-bold bg-[#F0F9FF] hover:bg-[#2F8BDD] hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#2F8BDD]/20">
+      <button
+        onClick={() => route.push("jobs")}
+        className="w-fit flex items-center gap-2 cursor-pointer px-6 py-3.5 rounded-lg border border-[#2F8BDD]/20 text-[#2F8BDD] font-bold bg-[#F0F9FF] hover:bg-[#2F8BDD] hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#2F8BDD]/20"
+      >
         {btnText}
         <span className="text-xl">→</span>
       </button>

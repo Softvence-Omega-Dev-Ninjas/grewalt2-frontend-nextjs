@@ -3,13 +3,14 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { motion } from "framer-motion";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
 // Your specific image imports
 import imgAI from "@/public/service/scope.jpg";
 import imgWeb3 from "@/public/clients/protocol.jpg";
 import imgGTM from "@/public/clients/industry.jpg";
 import oneCall from "@/public/clients/one-call.jpg";
+import { useRouter } from "next/navigation";
 
 export default function PartnerSection() {
   useEffect(() => {
@@ -51,7 +52,7 @@ export default function PartnerSection() {
       tag: "How partner intros work",
     },
   ];
-
+const route = useRouter()
   return (
     <section className="bg-white py-24 px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -59,7 +60,7 @@ export default function PartnerSection() {
         <header className="flex flex-col md:flex-row justify-between items-start mb-20 gap-8">
           <h2
             data-aos="fade-right"
-            className="text-[56px] font-bold text-[#0F172A] tracking-tighter leading-none"
+            className="text-[56px] font-bold text-[#0F172A] leading-none"
           >
             Partner network
           </h2>
@@ -70,7 +71,10 @@ export default function PartnerSection() {
               need support beyond hiring — we can connect you to trusted
               specialists and delivery teams.
             </p>
-            <button className="px-8 py-3 cursor-pointer rounded-xl border border-slate-200 text-[#3B82F6] font-bold text-sm hover:bg-slate-50 transition-all">
+            <button
+              onClick={() => route.push("contact")}
+              className="px-8 py-3 cursor-pointer rounded-xl border border-slate-200 text-[#3B82F6] font-bold text-sm hover:bg-slate-50 transition-all"
+            >
               Ask for an intro
             </button>
           </div>

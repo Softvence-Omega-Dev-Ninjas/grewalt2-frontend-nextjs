@@ -63,7 +63,7 @@ export default function ClientsSection() {
 
           <h1
             data-aos="fade-up"
-            className="text-[55px] md:text-[74px] font-bold text-[#0F172A] leading-[1] mb-10 tracking-tighter"
+            className="text-[55px] md:text-[74px] font-bold text-[#0F172A] leading-[1] mb-10 "
           >
             For Clients
           </h1>

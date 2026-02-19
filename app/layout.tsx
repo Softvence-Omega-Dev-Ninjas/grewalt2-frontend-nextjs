@@ -35,7 +35,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jakarta.variable} ${bomstad.variable} font-sans antialiased bg-[#FBFDFF]`}
+        className={`
+          ${jakarta.variable} 
+          ${bomstad.variable} 
+          ${jakarta.className}
+          antialiased bg-[#FBFDFF]
+        `}
       >
         <Navbar />
         <div className="min-h-[60vh]">{children}</div>

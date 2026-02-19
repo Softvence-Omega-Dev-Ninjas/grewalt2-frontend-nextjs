@@ -2,6 +2,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface ServiceCardProps {
   title: string;
@@ -18,6 +19,7 @@ export const ServiceCard = ({
   buttonText,
   delay,
 }: ServiceCardProps) => {
+  const route = useRouter()
   // Container for the list to control the staggering of children
   const listContainerVariants = {
     hidden: { opacity: 0 },
@@ -77,7 +79,10 @@ export const ServiceCard = ({
         ))}
       </motion.ul>
 
-      <button className="inline-flex cursor-pointer items-center justify-center gap-2 w-fit px-8 py-3 border border-[#CBD5E1] rounded-lg text-[#3B82F6] font-semibold text-[15px] hover:bg-slate-50 transition-all active:scale-95 group">
+      <button
+        onClick={() => route.push("jobs")}
+        className="inline-flex cursor-pointer items-center justify-center gap-2 w-fit px-8 py-3 border border-[#CBD5E1] rounded-lg text-[#3B82F6] font-semibold text-[15px] hover:bg-slate-50 transition-all active:scale-95 group"
+      >
         {buttonText}
         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
       </button>

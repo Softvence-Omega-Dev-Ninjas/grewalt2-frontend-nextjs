@@ -30,7 +30,7 @@ const ContactPage = () => {
               Talk to Aventra³
             </span>
           </div>
-          <h1 className="text-white text-6xl md:text-8xl font-bold tracking-tighter mb-6">
+          <h1 className="text-white text-6xl md:text-8xl font-bold  mb-6">
             Contact
           </h1>
           <p className="text-slate-300 text-lg md:text-xl max-w-2xl leading-relaxed">

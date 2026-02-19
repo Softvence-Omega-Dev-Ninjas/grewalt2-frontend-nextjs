@@ -123,4 +123,27 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* Use Bomstad for headings and large/display text via the CSS variable
+     provided by the Next localFont (bomstad.variable on the <body> element) */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .title,
+  .display,
+  .large {
+    font-family:
+      var(--font-bomstad),
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial,
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import ServicesPage from './_components/services/ServicesPage'
 import EngagementSection from './_components/EngagementSection/EngagementSection'
-import ServiceCTASection from './CTASection/CTASection'
+import ServiceCTASection from './_components/CTASection/CTASection'
 import FAQSection from './_components/faq-section/faqSection'
 
 const page = () => {

@@ -34,7 +34,7 @@ const StatsSection = () => {
             >
               {/* Number with Bomstad Font */}
               <h2
-                className="text-white text-5xl md:text-6xl font-bold tracking-tighter"
+                className="text-white text-5xl md:text-6xl font-bold "
                 style={{ fontFamily: "var(--font-bomstad), sans-serif" }}
               >
                 {stat.number}

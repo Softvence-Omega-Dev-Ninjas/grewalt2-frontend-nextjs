@@ -29,7 +29,7 @@ const LogoMarquee = () => {
               className="mx-12 flex items-center justify-center transition-opacity duration-300"
             >
               <div className="h-8 w-32  rounded-md flex items-center justify-center text-white font-bold tracking-widest text-xl italic">
-                <Image src={l} alt="logo" height={100} width={320} />
+                <Image src={l} alt="logo" height={250} width={350} />
               </div>
             </div>
           ))}
@@ -43,7 +43,7 @@ const LogoMarquee = () => {
               className="mx-12 flex items-center justify-center transition-opacity duration-300"
             >
               <div className="h-8 w-32  rounded-md flex items-center justify-center text-white font-bold tracking-widest text-xl italic">
-                <Image src={l} alt="logo" height={100} width={320} />
+                <Image src={l} alt="logo" height={250} width={350} />
               </div>
             </div>
           ))}
