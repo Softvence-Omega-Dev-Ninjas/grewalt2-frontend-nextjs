@@ -27,7 +27,7 @@ const Expertise = () => {
       description:
         "AI-driven talent for secure, compliant, and intelligent financial systems.",
       icon: <Image src={IconAiBank} alt="AI Bank" width={32} height={32} />,
-      video: "/expertiseVideo/ai.mp4", // public ফোল্ডারের জন্য শুরুতে / দিন
+      video: "/expertiseVideo/ai.mp4", 
       delay: 0,
     },
     {
