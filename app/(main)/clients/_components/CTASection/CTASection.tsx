@@ -5,6 +5,7 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ctaBg from "@/public/cta/ctaBg.jpg";
+import { useRouter } from "next/navigation";
 
 const ClientCTASection = () => {
   useEffect(() => {
@@ -13,7 +14,7 @@ const ClientCTASection = () => {
       once: false,
     });
   }, []);
-
+const route = useRouter()
   return (
     <section className="bg-[#FBFDFF] py-20 px-6">
       <div
@@ -61,6 +62,7 @@ const ClientCTASection = () => {
           >
             {/* Primary Button */}
             <motion.button
+              onClick={() => route.push("contact")}
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0px 10px 20px rgba(47, 139, 221, 0.3)",
@@ -73,6 +75,7 @@ const ClientCTASection = () => {
 
             {/* Secondary Button */}
             <motion.button
+              onClick={() => route.push("contact")}
               whileHover={{
                 scale: 1.05,
                 backgroundColor: "rgba(111, 222, 247, 0.1)",

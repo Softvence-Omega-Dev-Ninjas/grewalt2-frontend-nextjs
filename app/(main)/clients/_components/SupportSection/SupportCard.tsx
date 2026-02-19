@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, Users, Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface SupportCardProps {
   icon: "zap" | "users" | "sparkles";
@@ -23,6 +24,7 @@ export const SupportCard = ({
   buttonText,
   delay,
 }: SupportCardProps) => {
+  const route = useRouter()
   return (
     <div
       data-aos="fade-up"
@@ -41,7 +43,10 @@ export const SupportCard = ({
         {description}
       </p>
 
-      <button className="flex cursor-pointer items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 bg-slate-50/50 text-[#3B82F6] font-semibold text-sm hover:bg-white hover:shadow-sm transition-all group">
+      <button
+        onClick={() => route.push("jobs")}
+        className="flex cursor-pointer items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 bg-slate-50/50 text-[#3B82F6] font-semibold text-sm hover:bg-white hover:shadow-sm transition-all group"
+      >
         {buttonText}
         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
       </button>

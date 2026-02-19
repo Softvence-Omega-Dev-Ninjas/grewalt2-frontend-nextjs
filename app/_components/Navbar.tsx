@@ -17,7 +17,7 @@ const route = useRouter()
     { name: "Services", href: "/services" },
     { name: "Clients", href: "/clients" },
     { name: "Jobs", href: "/jobs" },
-    { name: "Insights", href: "/insights" },
+    { name: "Insights", href: "/Insights" },
   ];
 
   return (
