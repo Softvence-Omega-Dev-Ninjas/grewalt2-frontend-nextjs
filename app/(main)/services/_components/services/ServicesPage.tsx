@@ -44,7 +44,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white  py-20 md:py-32">
+    <main className="min-h-screen  bg-gray-50  py-20 md:py-32">
       <div className="flex flex-col gap-12">
         {/* Header Section */}
         <section className="mb-24 max-w-7xl mx-auto px-6">

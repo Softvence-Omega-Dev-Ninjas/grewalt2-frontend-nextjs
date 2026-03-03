@@ -55,7 +55,7 @@ const ContactPage = () => {
                   </div>
                 </div>
                 <span className="text-[17px] font-medium text-slate-600 group-hover:text-[#2F8BDD] transition-colors">
-                  hello@aventra3.com
+                  info@aventra3.com
                 </span>
               </div>
 
@@ -68,7 +68,7 @@ const ContactPage = () => {
                   </div>
                 </div>
                 <span className="text-[17px] font-medium text-slate-600 group-hover:text-[#2F8BDD] transition-colors">
-                  +8801787939155
+                  TBC
                 </span>
               </div>
 
@@ -81,28 +81,47 @@ const ContactPage = () => {
                   </div>
                 </div>
                 <span className="text-[17px] font-medium text-slate-600 group-hover:text-[#2F8BDD] transition-colors">
-                  123 Street 487 House
+                  Studio 9 50-54 St. Pauls Square, Birmingham, United Kingdom,
+                  B3 1QS
                 </span>
               </div>
             </div>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-5 ml-1">
-              {["linkedin", "facebook", "instagram"].map((platform) => (
-                <a
-                  key={platform}
-                  href="#"
-                  className="hover:scale-110 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <Image
-                    src={`/image/${platform}.svg`}
-                    alt={platform}
-                    width={32}
-                    height={32}
-                    className="opacity-90 hover:opacity-100"
-                  />
-                </a>
-              ))}
+            <div className="flex items-center gap-4 ml-1">
+              <a
+                href="https://www.linkedin.com/company/aventra3/?viewAsMember=true"
+                className="hover:scale-110 hover:-translate-y-1 transition-all duration-300"
+              >
+                <Image
+                  src="/image/linkedin.svg"
+                  alt="LinkedIn"
+                  width={32}
+                  height={32}
+                />
+              </a>
+              <a
+                href="https://x.com/aventra3_"
+                className="hover:scale-110 hover:-translate-y-1 transition-all duration-300"
+              >
+                <Image
+                  src="/image/x.svg"
+                  alt="Facebook"
+                  width={32}
+                  height={32}
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/aventra3.ai/"
+                className="hover:scale-110 hover:-translate-y-1 transition-all duration-300"
+              >
+                <Image
+                  src="/image/instagram.svg"
+                  alt="Instagram"
+                  width={32}
+                  height={32}
+                />
+              </a>
             </div>
           </div>
 
