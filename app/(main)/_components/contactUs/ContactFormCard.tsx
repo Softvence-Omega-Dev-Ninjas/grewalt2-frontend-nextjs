@@ -1,14 +1,35 @@
 "use client";
+
 import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 const ContactFormCard = () => {
   const [loading, setLoading] = useState(false);
+  const [service, setService] = useState("");
+  const [timeline, setTimeline] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // 🔒 prevents double submit (React StrictMode fix)
+    if (loading) return;
+
+    if (!service || !timeline) {
+      toast.error("Please select all required fields", {
+        position: "top-right",
+      });
+      return;
+    }
+
     setLoading(true);
 
     const formData = new FormData(e.currentTarget);
@@ -21,20 +42,21 @@ const ContactFormCard = () => {
         body: JSON.stringify(data),
       });
 
-      if (res.ok) {
-        toast.success("Enquiry sent successfully!", {
-          position: "top-right",
-          autoClose: 5000,
-          theme: "colored",
-        });
-        (e.target as HTMLFormElement).reset();
-      } else {
-        throw new Error();
-      }
-    } catch (err) {
-      toast.error("Failed to send message. Please try again.", {
+      if (!res.ok) throw new Error();
+
+      toast.success("Enquiry sent successfully!", {
         position: "top-right",
+        autoClose: 5000,
+        theme: "colored",
       });
+
+      e.currentTarget.reset();
+      setService("");
+      setTimeline("");
+    } catch {
+      // toast.error("Failed to send message. Please try again.", {
+      //   position: "top-right",
+      // });
     } finally {
       setLoading(false);
     }
@@ -43,130 +65,155 @@ const ContactFormCard = () => {
   return (
     <div className="bg-white rounded-lg p-10 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.05)] w-full max-w-[750px]">
       <ToastContainer />
-      <h2 className="text-[36px] font-bold text-[#05183D] mb-3 leading-tight tracking-tight">
-        Tell us what you need
+
+      <h2 className="text-[32px] md:text-[36px] font-bold text-[#05183D] mb-3 leading-tight tracking-tight">
+        Tell us what you&apos;re building
       </h2>
-      <p className="text-slate-400 text-[16px] mb-12">
-        We&apos;ll route your message to the right person. Confidential by
-        default.
+
+      <p className="text-slate-500 text-[16px] mb-12">
+        We&apos;ll connect you with the right specialist. All enquiries are
+        confidential.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-12">
-          {/* Form Fields Array */}
-          {[
-            {
-              label: "Company Name",
-              name: "company",
-              placeholder: "Enter your company name",
-              type: "text",
-            },
-            {
-              label: "Your Name",
-              name: "name",
-              placeholder: "Enter your name",
-              required: true,
-              type: "text",
-            },
-            {
-              label: "Work Email",
-              name: "email",
-              placeholder: "Enter your email",
-              required: true,
-              type: "email",
-            },
-            {
-              label: "Your Role/Title",
-              name: "role",
-              placeholder: "Enter your role/title",
-              type: "text",
-            },
-          ].map((field) => (
-            <div key={field.name} className="flex flex-col gap-2 relative">
-              <label className="text-[15px] font-bold text-[#05183D]">
-                {field.label}{" "}
-                {field.required && <span className="text-red-500">*</span>}
-              </label>
-              <input
-                name={field.name}
-                type={field.type}
-                required={field.required}
-                placeholder={field.placeholder}
-                className="border-b-[1.5px] border-slate-200 py-3 outline-none focus:border-[#2F8BDD] transition-colors placeholder:text-slate-300 text-slate-700 bg-transparent"
-              />
-            </div>
-          ))}
-
-          {/* Select Field */}
-          <div className="flex flex-col gap-2 relative">
+          {/* Company Name */}
+          <div className="flex flex-col gap-2">
             <label className="text-[15px] font-bold text-[#05183D]">
-              Select <span className="text-red-500">*</span>
-            </label>
-            <div className="relative">
-              <select
-                name="service"
-                required
-                className="w-full border-b-[1.5px] border-slate-200 py-3 outline-none focus:border-[#2F8BDD] transition-colors text-slate-400 bg-transparent appearance-none cursor-pointer"
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  What can we help
-                </option>
-                <option value="recruitment">Elite Recruitment</option>
-                <option value="squads">Specialist Squads</option>
-                <option value="advisory">Strategic Advisory</option>
-              </select>
-              <ChevronDown
-                className="absolute right-0 bottom-4 text-slate-400 pointer-events-none"
-                size={18}
-              />
-            </div>
-          </div>
-
-          {/* Timeline Field */}
-          <div className="flex flex-col gap-2 relative">
-            <label className="text-[15px] font-bold text-[#05183D]">
-              Hiring/Project Timeline
+              Company name
             </label>
             <input
-              name="timeline"
+              name="company"
               type="text"
-              placeholder="Enter your timeline"
+              placeholder="Enter your company name"
               className="border-b-[1.5px] border-slate-200 py-3 outline-none focus:border-[#2F8BDD] transition-colors placeholder:text-slate-300 text-slate-700 bg-transparent"
             />
           </div>
+
+          {/* Your Name */}
+          <div className="flex flex-col gap-2">
+            <label className="text-[15px] font-bold text-[#05183D]">
+              Your name <span className="text-red-500">*</span>
+            </label>
+            <input
+              name="name"
+              type="text"
+              required
+              placeholder="Enter your name"
+              className="border-b-[1.5px] border-slate-200 py-3 outline-none focus:border-[#2F8BDD] transition-colors placeholder:text-slate-300 text-slate-700 bg-transparent"
+            />
+          </div>
+
+          {/* Email */}
+          <div className="flex flex-col gap-2">
+            <label className="text-[15px] font-bold text-[#05183D]">
+              Your email <span className="text-red-500">*</span>
+            </label>
+            <input
+              name="email"
+              type="email"
+              required
+              placeholder="Enter your email"
+              className="border-b-[1.5px] border-slate-200 py-3 outline-none focus:border-[#2F8BDD] transition-colors placeholder:text-slate-300 text-slate-700 bg-transparent"
+            />
+          </div>
+
+          {/* Service Select */}
+          <div className="flex flex-col gap-2">
+            <label className="text-[15px] font-bold text-[#05183D]">
+              What support are you looking for?{" "}
+              <span className="text-red-500">*</span>
+            </label>
+
+            <input type="hidden" name="service" value={service} />
+
+            <Select value={service} onValueChange={setService}>
+              <SelectTrigger className="w-full border-0  py-3 px-0 rounded-none outline-none focus:border-[#2F8BDD] transition-colors text-slate-700 bg-transparent">
+                <SelectValue placeholder="Select a service" />
+              </SelectTrigger>
+
+              <SelectContent>
+                <SelectItem value="Executive Search">
+                  Executive & Leadership Search
+                </SelectItem>
+                <SelectItem value="AI Talent">
+                  AI / Machine Learning Talent
+                </SelectItem>
+                <SelectItem value="Web3 Engineering">
+                  Web3 / Blockchain Engineering
+                </SelectItem>
+                <SelectItem value="Technical Specialists">
+                  Hard-to-Find Technical Specialists
+                </SelectItem>
+                <SelectItem value="Fractional Talent">
+                  Fractional / Embedded Talent
+                </SelectItem>
+                <SelectItem value="Managed Solutions">
+                  Managed Talent Solutions
+                </SelectItem>
+                <SelectItem value="Talent Advisory">
+                  Talent Strategy & Advisory
+                </SelectItem>
+                <SelectItem value="Need Guidance">
+                  Not sure yet — need guidance
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Timeline Select */}
+          <div className="flex flex-col gap-2">
+            <label className="text-[15px] font-bold text-[#05183D]">
+              Hiring / Project Timeline <span className="text-red-500">*</span>
+            </label>
+
+            <input type="hidden" name="timeline" value={timeline} />
+
+            <Select value={timeline} onValueChange={setTimeline}>
+              <SelectTrigger className="w-full border-0 py-3 px-0 rounded-none outline-none focus:border-[#2F8BDD] transition-colors text-slate-700 bg-transparent">
+                <SelectValue placeholder="Select timeline" />
+              </SelectTrigger>
+
+              <SelectContent>
+                <SelectItem value="Immediate (0-30 days)">
+                  Immediate (0–30 days)
+                </SelectItem>
+                <SelectItem value="1-3 months">1–3 months</SelectItem>
+                <SelectItem value="3-6 months">3–6 months</SelectItem>
+                <SelectItem value="6+ months">6+ months</SelectItem>
+                <SelectItem value="Exploring">Exploring options</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
 
-        {/* Description Field */}
-        <div className="flex flex-col gap-2 relative">
+        {/* Description */}
+        <div className="flex flex-col gap-2">
           <label className="text-[15px] font-bold text-[#05183D]">
-            Description <span className="text-red-500">*</span>
+            Tell us about your requirement{" "}
+            <span className="text-red-500">*</span>
           </label>
           <textarea
             name="description"
-            rows={1}
+            rows={2}
             required
-            placeholder="Briefly describe your needs"
+            placeholder="Briefly describe what you are looking for..."
             className="border-b-[1.5px] border-slate-200 py-3 outline-none focus:border-[#2F8BDD] transition-colors placeholder:text-slate-300 text-slate-700 bg-transparent resize-none"
           />
         </div>
 
+        {/* Submit */}
         <div className="pt-6">
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 cursor-pointer rounded-[12px] text-white font-bold text-[18px] transition-all duration-300 shadow-[0_15px_35px_rgba(47,139,221,0.35)] hover:shadow-[0_20px_45px_rgba(47,139,221,0.45)] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full py-4 rounded-[12px] text-white font-bold text-[18px] transition-all duration-300 shadow-[0_15px_35px_rgba(47,139,221,0.35)] hover:shadow-[0_20px_45px_rgba(47,139,221,0.45)] active:scale-[0.98] disabled:opacity-70"
             style={{
               background: "linear-gradient(90deg, #2F8BDD 0%, #6FDEF7 100%)",
             }}
           >
             {loading ? "Sending Enquiry..." : "Submit Enquiry"}
           </button>
-
-          <p className="text-[13px] mt-4 text-slate-400 leading-relaxed">
-            Tip: If you&apos;re a candidate, include your LinkedIn and target
-            roles. If you&apos;re a client, include scope and timeline.
-          </p>
         </div>
       </form>
     </div>

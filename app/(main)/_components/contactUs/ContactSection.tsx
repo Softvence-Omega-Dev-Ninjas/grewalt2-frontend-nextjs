@@ -38,7 +38,7 @@ const ContactSection = () => {
                 </div>
               </div>
               <span className="text-[17px] font-medium text-slate-600 group-hover:text-[#2F8BDD] transition-colors">
-                hello@aventra3.com
+                info@aventra3.com
               </span>
             </div>
 
@@ -50,7 +50,7 @@ const ContactSection = () => {
                 </div>
               </div>
               <span className="text-[17px] font-medium text-slate-600 group-hover:text-[#2F8BDD] transition-colors">
-                +8801787939155
+                TBC
               </span>
             </div>
 
@@ -62,7 +62,8 @@ const ContactSection = () => {
                 </div>
               </div>
               <span className="text-[17px] font-medium text-slate-600 group-hover:text-[#2F8BDD] transition-colors">
-                123 Street 487 House
+                Studio 9 50-54 St. Pauls Square, Birmingham, United Kingdom, B3
+                1QS
               </span>
             </div>
           </div>
@@ -70,7 +71,7 @@ const ContactSection = () => {
           {/* Social Icons - Balanced Figma Layout */}
           <div className="flex items-center gap-4 ml-1">
             <a
-              href="#"
+              href="https://www.linkedin.com/company/aventra3/?viewAsMember=true"
               className="hover:scale-110 hover:-translate-y-1 transition-all duration-300"
             >
               <Image
@@ -81,18 +82,13 @@ const ContactSection = () => {
               />
             </a>
             <a
-              href="#"
+              href="https://x.com/aventra3_"
               className="hover:scale-110 hover:-translate-y-1 transition-all duration-300"
             >
-              <Image
-                src="/image/facebook.svg"
-                alt="Facebook"
-                width={32}
-                height={32}
-              />
+              <Image src="/image/x.svg" alt="Facebook" width={32} height={32} />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/aventra3.ai/"
               className="hover:scale-110 hover:-translate-y-1 transition-all duration-300"
             >
               <Image

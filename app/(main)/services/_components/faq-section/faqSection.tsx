@@ -5,36 +5,74 @@ import { ChevronDown } from "lucide-react";
 
 const faqData = [
   {
-    question: "Do you only work in crypto and Web3?",
-    answer:
-      "We cover AI, blockchain, DeFi and Web3 — including regulated fintech and institutions building in these areas.",
+    question: "What industries does Aventra3 specialise in?",
+    answer: (
+      <div className="space-y-4">
+        <p>
+          We focus exclusively on emerging and frontier technologies, including:
+        </p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Artificial Intelligence (AI)</li>
+          <li>Machine Learning</li>
+          <li>Web3</li>
+          <li>Blockchain</li>
+          <li>Crypto infrastructure</li>
+          <li>Decentralized Finance (DeFi)</li>
+        </ul>
+        <p>
+          This specialization allows us to outperform generalist recruiters.
+        </p>
+      </div>
+    ),
   },
   {
-    question: "What makes your shortlists different?",
-    answer:
-      "We prioritise signal: proven delivery, domain fit, and practical understanding of regulated/high-growth environments.",
+    question:
+      "What makes Aventra3 different from traditional recruitment agencies?",
+    answer: (
+      <ul className="list-disc pl-5 space-y-2">
+        <li>Deep domain expertise in frontier tech</li>
+        <li>Access to passive, hard-to-reach talent</li>
+        <li>Global talent network</li>
+        <li>Strategic advisory beyond hiring</li>
+        <li>Data-driven talent mapping</li>
+      </ul>
+    ),
   },
   {
-    question: "Can you help us design the team before we hire?",
+    question: "Do you offer retained search or contingency recruitment?",
     answer:
-      "Yes. Advisory is part of how we work — we challenge role design and hiring order before you commit budget.",
+      "We offer both models depending on the complexity and urgency of the role. For highly technical or leadership roles, we typically recommend retained search.",
   },
   {
-    question: 'What does "Specialist Squads" include?',
+    question: "Can you help us build an entire AI or Web3 team?",
     answer:
-      "Outcome-driven delivery teams such as KYC/AML deployments, compliance ops uplift, transaction monitoring QA, and AI support pods.",
+      "Yes. We support full team builds — from founding engineers to executive leadership — including compensation benchmarking and workforce planning.",
+  },
+  {
+    question: "Is your talent network global?",
+    answer:
+      "Yes. We source talent across North America, Europe, the Middle East, and Asia.",
+  },
+  {
+    question: "How long does it take to fill a role?",
+    answer:
+      "Time-to-fill depends on role complexity. Niche AI research roles may take longer, while engineering hires typically range between 3–8 weeks.",
+  },
+  {
+    question: "Do you guarantee placements?",
+    answer:
+      "We offer replacement guarantees depending on the engagement model.",
   },
 ];
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // First item open by default
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#F8FAFC] py-24 px-6 min-h-screen flex items-center justify-center">
+    <section className="bg-[#F8FAFC] py-20 px-6 min-h-screen flex flex-col items-center">
       <div className="max-w-3xl w-full mx-auto">
-        {/* Header */}
         <header className="text-center mb-16">
-          <h2 className="text-[48px] font-bold text-[#0F172A] mb-4 tracking-tight">
+          <h2 className="text-[48px] md:text-[64px] font-black text-[#0F172A] mb-4 tracking-tighter uppercase">
             FAQ
           </h2>
           <p className="text-slate-500 text-lg">
@@ -42,24 +80,21 @@ export default function FAQSection() {
           </p>
         </header>
 
-        {/* Accordion List */}
         <div className="space-y-4">
           {faqData.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-sm"
+              className="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full cursor-pointer px-8 py-6 flex items-center justify-between text-left transition-colors hover:bg-slate-50"
               >
-                <span className="text-[20px] font-bold text-[#0F172A] tracking-tight">
+                <span className="text-[18px] md:text-[20px] font-bold text-[#0F172A] tracking-tight pr-4">
                   {item.question}
                 </span>
                 <ChevronDown
-                  className={`w-6 h-6 text-[#0F172A] transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
+                  className={`w-5 h-5 text-[#0F172A] transition-transform duration-300 flex-shrink-0 ${openIndex === index ? "rotate-180" : ""}`}
                 />
               </button>
 
@@ -71,10 +106,9 @@ export default function FAQSection() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <div className="px-8 pb-8">
-                      <p className="text-slate-500 text-[16px] leading-relaxed max-w-[90%]">
-                        {item.answer}
-                      </p>
+                    <div className="px-8 pb-8 text-slate-500 text-[16px] leading-relaxed">
+                      <div className="h-[1px] w-full bg-slate-100 mb-6" />
+                      {item.answer}
                     </div>
                   </motion.div>
                 )}

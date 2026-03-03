@@ -2,6 +2,8 @@
 import React from "react";
 import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+// import { useRouter } from "next/router";
 
 interface JobCardProps {
   title: string;
@@ -20,6 +22,7 @@ const JobCard = ({
   category,
   index,
 }: JobCardProps) => {
+  const route = useRouter()
   return (
     <motion.div
       // AOS "fade-up" initial state
@@ -51,13 +54,21 @@ const JobCard = ({
         {description}
       </p>
 
-      <div className="flex flex-wrap gap-2 mt-auto">
-        <span className="px-4 py-1.5 bg-[#2F8BDD] text-white text-[12px] font-bold rounded-lg uppercase tracking-wider">
-          {type}
-        </span>
-        <span className="px-4 py-1.5 bg-[#2F8BDD] text-white text-[12px] font-bold rounded-lg uppercase tracking-wider">
-          {category}
-        </span>
+      <div className="flex justify-between gap-2 mt-auto">
+        <div className="flex flex-wrap gap-2 mt-auto">
+          <span className="px-4 py-1.5 bg-[#2F8BDD] text-white text-[12px] font-bold rounded-lg uppercase tracking-wider">
+            {type}
+          </span>
+          <span className="px-4 py-1.5 bg-[#2F8BDD] text-white text-[12px] font-bold rounded-lg uppercase tracking-wider">
+            {category}
+          </span>
+        </div>
+        <button
+          onClick={() => route.push("/jobs/details")}
+          className="px-2  bg-gradient-to-r from-[#6FDEF7] to-[#2F8BDD] text-white py-2 rounded-lg font-bold text-md"
+        >
+          View Details
+        </button>
       </div>
     </motion.div>
   );

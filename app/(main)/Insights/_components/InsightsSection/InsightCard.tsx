@@ -3,6 +3,7 @@
 // import React from "react";
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/navigation";
 
 interface InsightCardProps {
   title: string;
@@ -23,8 +24,10 @@ const InsightCard = ({
   tags,
   index,
 }: InsightCardProps) => {
+  const route = useRouter()
   return (
     <motion.div
+      onClick={() => route.push("/Insights/details")}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}
