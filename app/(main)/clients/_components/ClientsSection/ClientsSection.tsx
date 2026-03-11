@@ -1,11 +1,8 @@
 "use client";
 import { useEffect } from "react";
-// import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
-// import { ClientFeatureCard } from "./ClientFeatureCard";
 
-// Replace these with your actual image paths
 import marketImg from "@/public/clients/marketI.jpg";
 import teamImg from "@/public/clients/team.jpg";
 import regImg from "@/public/clients/aware.jpg";
@@ -17,7 +14,7 @@ export default function ClientsSection() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: false, // Unlimited scroll triggers
+      once: false,
       mirror: true,
       easing: "ease-out-quart",
     });
@@ -26,83 +23,73 @@ export default function ClientsSection() {
   const features = [
     {
       title: "Market intelligence",
-      subtitle: "Comp, supply, role scarcity",
+      subtitle:
+        "Comprehensive analysis of compensation, supply, and role scarcity in the frontier tech market.",
       image: marketImg,
     },
     {
       title: "Team design",
-      subtitle: "Hiring order + org shape",
+      subtitle:
+        "Strategic hiring order and organizational shaping tailored for rapid scale-ups.",
       image: teamImg,
     },
     {
       title: "Regulation-aware",
-      subtitle: "Risk, controls, governance",
+      subtitle:
+        "Navigating risk, controls, and governance within highly regulated fintech sectors.",
       image: regImg,
     },
     {
       title: "High-signal delivery",
-      subtitle: "Shortlists, not longlists",
+      subtitle:
+        "Focusing on curated shortlists that match your technical and cultural requirements.",
       image: deliveryImg,
     },
   ];
 
   return (
-    <section className="bg-white py-24 px-6 mt-6 md:px-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#FAFBFF] py-32 px-6 md:px-12 relative overflow-hidden">
+      {/* Background subtle pattern or blob */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sky-100/30 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Top Header */}
-        <header className="mb-32">
-          <div className="flex items-center gap-2 mb-6" data-aos="fade-right">
-            <div className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6FDEF7] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-[#6FDEF7] to-[#6FDEF7]"></span>
+        <header className="mb-32 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-6" data-aos="fade-right">
+              <div className="h-1 w-12 bg-sky-500 rounded-full"></div>
+              <span className="text-sm text-sky-600 font-bold uppercase tracking-[0.3em]">
+                Client Partnership
+              </span>
             </div>
-            <span className="text-sm text-slate-600 font-semibold tracking-wide">
-              Advisory-led hiring + delivery for frontier tech
-            </span>
+
+            <h1
+              data-aos="fade-up"
+              className="text-[54px] md:text-[90px] font-bold text-[#05183D] leading-[0.85] mb-0 tracking-tighter"
+            >
+              For Clients<span className="text-sky-500">.</span>
+            </h1>
           </div>
 
-          <h1
-            data-aos="fade-up"
-            className="text-[55px] md:text-[74px] font-bold text-[#0F172A] leading-[1] mb-10 "
-          >
-            For Clients
-          </h1>
-
           <p
-            data-aos="fade-up"
+            data-aos="fade-left"
             data-aos-delay="200"
-            className="text-slate-600 text-lg md:text-xl max-w-3xl leading-relaxed"
+            className="text-slate-500 text-lg md:text-xl max-w-[400px] leading-relaxed font-medium border-l-4 border-sky-100 pl-8"
           >
             Aventra³ helps organisations build and scale capability across AI,
-            Web3, crypto and regulated fintech. We combine market insight, team
-            design, and execution models — so you move faster with less risk.
+            Web3, crypto and regulated fintech.
           </p>
         </header>
 
-        {/* Section Heading with Side Text */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
-          <h2
-            data-aos="fade-right"
-            className="text-4xl md:text-[54px] font-bold text-[#0F172A] tracking-tight"
-          >
-            What you get with Aventra³
-          </h2>
-          <p
-            data-aos="fade-left"
-            className="text-slate-500 text-lg max-w-[320px] leading-snug"
-          >
-            Clarity first. Execution next. Built for speed, complexity and
-            regulated growth.
-          </p>
-        </div>
-
-        {/* 2x2 Feature Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-20">
+        {/* Structured Masonry-style Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10 lg:gap-x-16">
           {features.map((item, idx) => (
             <ClientFeatureCard
               key={idx}
               {...item}
-              delay={idx % 2 === 0 ? 0 : 200} // Staggers left and right columns
+              index={idx}
+              isEven={idx % 2 !== 0}
+              delay={idx * 100}
             />
           ))}
         </div>

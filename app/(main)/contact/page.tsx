@@ -68,7 +68,7 @@ const ContactPage = () => {
                   </div>
                 </div>
                 <span className="text-[17px] font-medium text-slate-600 group-hover:text-[#2F8BDD] transition-colors">
-                  TBC
+                  +44 7784677243
                 </span>
               </div>
 

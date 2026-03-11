@@ -5,10 +5,6 @@ import { useSearchParams } from "next/navigation";
 import JobForm from "./JobForm";
 import { JOBS_DATA } from "./data";
 
-
-/**
- * 1. Type Definitions (Matching your provided array structure)
- */
 export type JobCategory = {
   category: string;
   points: string[];
@@ -19,16 +15,10 @@ export type JobRequirement = {
   points: string[];
 };
 
-/**
- * 2. Main JobDetails Component
- * This component now reads the "id" from the URL search parameters
- * and finds the matching job from your array.
- */
 const JobDetails = () => {
   const searchParams = useSearchParams();
   const jobId = searchParams.get("id");
 
-  // Find the job by ID, fallback to the first job if not found or no ID provided
   const currentJob = JOBS_DATA.find((j) => j.id === jobId) || JOBS_DATA[0];
 
   if (!currentJob) {
@@ -36,63 +26,83 @@ const JobDetails = () => {
   }
 
   return (
-    <div className="bg-[#F9FAFB] min-h-screen py-16 px-6 md:px-12 lg:px-24">
+    <div className="bg-gradient-to-b pt-40 from-[#EEF6FF] via-white to-white min-h-screen py-20 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto">
-        {/* 1. Header Section */}
+        {/* Header */}
         <div className="mb-16">
-          <h1 className="text-4xl md:text-[64px] font-black text-[#0D1B3E] uppercase tracking-tight leading-[1] mb-6">
+          <h1 className="text-4xl md:text-[64px] font-black text-[#0D1B3E] leading-[1.05] mb-6 relative inline-block">
             {currentJob.title}
+            <span className="absolute -bottom-3 left-0 w-24 h-1 bg-[#2F8BDD] rounded"></span>
           </h1>
-          <div className="flex flex-wrap items-center gap-3 text-gray-500 font-medium text-sm md:text-lg">
-            <span>{currentJob.company}</span>
-            <span className="text-gray-300">|</span>
-            <span>{currentJob.location}</span>
-            <span className="text-gray-300">|</span>
-            <span>{currentJob.level}</span>
-            <span className="text-gray-300">|</span>
-            <span className="text-[#2F8BDD]">{currentJob.workStyle}</span>
+
+          <div className="flex flex-wrap gap-3 text-sm md:text-base font-medium mt-6">
+            <span className="bg-white px-4 py-2 rounded-lg shadow-sm">
+              {currentJob.company}
+            </span>
+
+            <span className="bg-white px-4 py-2 rounded-lg shadow-sm">
+              {currentJob.location}
+            </span>
+
+            <span className="bg-white px-4 py-2 rounded-lg shadow-sm">
+              {currentJob.level}
+            </span>
+
+            <span className="bg-[#EEF6FF] text-[#2F8BDD] px-4 py-2 rounded-lg font-semibold">
+              {currentJob.workStyle}
+            </span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          {/* 2. Left Side - Job Description & Details */}
+          {/* LEFT SIDE */}
           <div className="lg:col-span-7 space-y-12">
-            {/* Intro Paragraph */}
-            <div className="space-y-6 text-[#475569] text-lg leading-relaxed">
-              <p>{currentJob.description}</p>
-              {currentJob.additionalInfo && <p>{currentJob.additionalInfo}</p>}
+            {/* Intro */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+              <p className="text-[#475569] text-lg leading-relaxed">
+                {currentJob.description}
+              </p>
+
+              {currentJob.additionalInfo && (
+                <p className="text-[#475569] text-lg leading-relaxed mt-6">
+                  {currentJob.additionalInfo}
+                </p>
+              )}
             </div>
 
-            {/* The Role Section */}
+            {/* Role */}
             {currentJob.roleInfo && (
-              <section>
-                <h2 className="text-3xl font-bold text-[#0D1B3E] mb-6">
+              <section className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <h2 className="text-2xl font-bold text-[#0D1B3E] mb-4">
                   {currentJob.roleInfo.title}
                 </h2>
-                <div className="text-[#475569] text-lg leading-relaxed">
-                  <p>{currentJob.roleInfo.content}</p>
-                </div>
+
+                <p className="text-[#475569] text-lg leading-relaxed">
+                  {currentJob.roleInfo.content}
+                </p>
               </section>
             )}
 
-            {/* Key Responsibilities Section */}
-            <section>
-              <h2 className="text-3xl font-bold text-[#0D1B3E] mb-8 uppercase tracking-tight">
+            {/* Responsibilities */}
+            <section className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+              <h2 className="text-2xl font-bold text-[#0D1B3E] mb-8">
                 Key Responsibilities
               </h2>
+
               <div className="space-y-10">
                 {currentJob.responsibilities.map((item, idx) => (
-                  <div key={idx}>
-                    <h3 className="font-bold text-[#0D1B3E] text-xl mb-4">
+                  <div key={idx} className="pl-6 border-l-4 border-[#2F8BDD]">
+                    <h3 className="font-semibold text-[#0D1B3E] text-xl mb-4">
                       {item.category}
                     </h3>
+
                     <ul className="space-y-4">
                       {item.points.map((point, pIdx) => (
                         <li
                           key={pIdx}
-                          className="flex items-start gap-3 text-[#475569] text-lg leading-relaxed"
+                          className="flex gap-3 text-[#475569] text-lg leading-relaxed"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#2F8BDD] mt-2.5 flex-shrink-0" />
+                          <span className="w-2 h-2 bg-[#2F8BDD] rounded-full mt-2.5" />
                           {point}
                         </li>
                       ))}
@@ -102,19 +112,20 @@ const JobDetails = () => {
               </div>
             </section>
 
-            {/* Requirements Section */}
+            {/* Requirements */}
             {currentJob.requirements?.map((req, index) => (
-              <section key={index} className="pt-8 border-t border-gray-200">
-                <h2 className="text-3xl font-bold text-[#0D1B3E] mb-8 tracking-tight">
+              <section
+                key={index}
+                className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100"
+              >
+                <h2 className="text-2xl font-bold text-[#0D1B3E] mb-6">
                   {req.title}
                 </h2>
+
                 <ul className="space-y-4">
                   {req.points.map((point, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-3 text-[#475569] text-lg leading-relaxed"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#2F8BDD] mt-2.5 flex-shrink-0" />
+                    <li key={idx} className="flex gap-3 text-[#475569] text-lg">
+                      <span className="w-2 h-2 bg-[#2F8BDD] rounded-full mt-2.5" />
                       {point}
                     </li>
                   ))}
@@ -122,19 +133,17 @@ const JobDetails = () => {
               </section>
             ))}
 
-            {/* Offer / Benefits Section */}
+            {/* Offer */}
             {currentJob.offer && (
-              <section className="pt-8 border-t border-gray-200">
-                <h2 className="text-3xl font-bold text-[#0D1B3E] mb-8 tracking-tight">
+              <section className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <h2 className="text-2xl font-bold text-[#0D1B3E] mb-6">
                   {currentJob.offer.title}
                 </h2>
+
                 <ul className="space-y-4">
                   {currentJob.offer.benefits.map((benefit, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-3 text-[#475569] text-lg leading-relaxed"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#2F8BDD] mt-2.5 flex-shrink-0" />
+                    <li key={idx} className="flex gap-3 text-[#475569] text-lg">
+                      <span className="w-2 h-2 bg-[#2F8BDD] rounded-full mt-2.5" />
                       {benefit}
                     </li>
                   ))}
@@ -143,9 +152,9 @@ const JobDetails = () => {
             )}
           </div>
 
-          {/* 3. Right Side - Sticky Application Form */}
+          {/* RIGHT SIDE FORM (UNCHANGED) */}
           <div className="lg:col-span-5">
-            <div className="sticky top-32">
+            <div className="sticky top-0 pt-8">
               <JobForm />
             </div>
           </div>
