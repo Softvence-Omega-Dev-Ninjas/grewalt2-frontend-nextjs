@@ -4,19 +4,14 @@
 import React, { useMemo } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-// import { articles as ARTICLES_DATA } from "./data"; // Apnar data file theke import korun
 import bgImage from "@/public/contact/bgOne.png";
 import insightFeatureImg from "@/public/newImg/insight/insDetl.png";
 import { INSIGHTS_DATA } from "./data";
 
-/**
- * Main Details Page Component
- */
 const InsightsDetails = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
-  // Find the matching article or fallback to first
   const article = useMemo(() => {
     return (
       INSIGHTS_DATA.find((a: any) => a.id === Number(id)) || INSIGHTS_DATA[0]
@@ -33,92 +28,96 @@ const InsightsDetails = () => {
 
   return (
     <main className="w-full bg-white flex flex-col">
-      {/* 1. Background Header */}
+      {/* HERO HEADER */}
       <section
-        className="relative w-full pt-40 pb-60 px-6 overflow-hidden"
+        className="relative w-full pt-48 pb-72 px-6 overflow-hidden"
         style={bgStyle}
       >
-        <div className="absolute inset-0 h-full z-0 bg-gradient-to-b from-[#021335] via-[#021335]/40 to-white" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#021335] via-[#021335]/60 to-white z-0" />
       </section>
 
-      {/* 2. Image Section */}
-      <section className="relative w-full px-6 pb-12 -mt-48 z-20 flex justify-center">
+      {/* FEATURE IMAGE */}
+      <section className="relative w-full px-6 pb-12 -mt-56 z-20 flex justify-center">
         <div className="max-w-7xl w-full">
-          <div className="relative w-full rounded-md overflow-hidden shadow-2xl bg-[#0D1B3E]">
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.25)]">
             <Image
-              src={insightFeatureImg} // Dynamic image path thakle article.image use korun
+              src={insightFeatureImg}
               alt={article.title}
-              className="object-cover w-full h-[40vh] md:h-[60vh]"
+              className="object-cover w-full h-[42vh] md:h-[65vh]"
             />
           </div>
         </div>
       </section>
 
-      {/* 3. Content Section */}
+      {/* CONTENT */}
       <InsightDetailsContent article={article} />
     </main>
   );
 };
 
-/**
- * Content Renderer Component
- */
 const InsightDetailsContent = ({ article }: { article: any }) => {
   return (
     <section className="w-full bg-white font-sans">
-      <div className="max-w-7xl mx-auto px-6 pb-24">
-        {/* Meta Info */}
-        <div className="flex items-center justify-between mb-8">
+      <div className="max-w-5xl mx-auto px-6 pb-28">
+        {/* META */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
           <div className="flex gap-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#2F8BDD] bg-blue-50 px-3 py-1 rounded-full">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#2F8BDD] bg-[#EEF6FF] px-3 py-1 rounded-full">
               {article.category}
             </span>
           </div>
+
           <span className="text-sm text-slate-400 font-medium">
             Published: {article.publishDate}
           </span>
         </div>
 
-        {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-bold text-[#05183D] leading-[1.1] mb-8">
+        {/* TITLE */}
+        <h1 className="text-4xl md:text-5xl font-bold text-[#05183D] leading-[1.1] mb-10">
           {article.title}
         </h1>
 
-        {/* Introduction */}
-        <div className="text-lg md:text-xl text-slate-600 leading-relaxed mb-16 border-l-4 border-[#2F8BDD] pl-6 py-2 italic">
+        {/* INTRO */}
+        <div className="text-lg md:text-xl text-slate-600 leading-relaxed mb-20 border-l-4 border-[#2F8BDD] pl-6 py-2 italic">
           {article.introduction}
         </div>
 
-        {/* Dynamic Sections Loop */}
-        <div className="space-y-16">
+        {/* ARTICLE SECTIONS */}
+        <div className="space-y-20">
           {article.sections.map((section: any, idx: number) => (
-            <div key={idx} className="group">
+            <div key={idx} className="relative">
+              {/* section divider */}
+              {idx !== 0 && (
+                <div className="absolute -top-10 left-0 w-full h-[1px] bg-slate-100" />
+              )}
+
               <h2 className="text-2xl md:text-3xl font-bold text-[#05183D] mb-6 flex items-center gap-4">
-                <span className="text-[#2F8BDD]/20 text-4xl font-black">
-                  0{idx + 1}
+                <span className="text-[#2F8BDD]/20 text-5xl font-black leading-none">
+                  {String(idx + 1).padStart(2, "0")}
                 </span>
+
                 {section.title}
               </h2>
 
               <div className="text-slate-600 text-lg leading-relaxed space-y-4">
-                {/* Content text or list rendering */}
                 {typeof section.content === "string" ? (
                   <p>{section.content}</p>
                 ) : (
                   <p>{section.content}</p>
                 )}
 
-                {/* Sub-sections rendering for articles like ID: 8 */}
+                {/* SUB SECTIONS */}
                 {section.subSections && (
-                  <div className="grid grid-cols-1 gap-8 mt-8">
+                  <div className="grid grid-cols-1 gap-8 mt-10">
                     {section.subSections.map((sub: any, sIdx: number) => (
                       <div
                         key={sIdx}
-                        className="bg-slate-50 p-6 rounded-xl border-l-2 border-[#2F8BDD]"
+                        className="bg-[#F8FAFC] p-6 rounded-xl border border-slate-100 hover:border-[#2F8BDD]/30 transition-colors"
                       >
                         <h4 className="font-bold text-[#05183D] text-lg mb-2">
                           {sub.title}
                         </h4>
+
                         <p className="text-slate-600">{sub.content}</p>
                       </div>
                     ))}
@@ -129,20 +128,24 @@ const InsightDetailsContent = ({ article }: { article: any }) => {
           ))}
         </div>
 
-        {/* CTA Section */}
+        {/* CTA */}
         {article.cta && (
-          <div className="mt-24 p-8 md:p-12 bg-[#05183D] rounded-2xl text-white relative overflow-hidden">
+          <div className="mt-24 p-10 md:p-14 bg-[#05183D] rounded-2xl text-white relative overflow-hidden">
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-4">Direct Execution</h3>
+              <h3 className="text-3xl font-bold mb-4">
+                Build Your AI & Web3 Team
+              </h3>
+
               <p className="text-blue-100 text-lg leading-relaxed mb-8 max-w-2xl">
                 {article.cta}
               </p>
+
               <button className="bg-[#2F8BDD] hover:bg-blue-600 transition-colors px-8 py-4 rounded-lg font-bold">
                 Work with Aventra3
               </button>
             </div>
-            {/* Decorative element */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full -mr-32 -mt-32 blur-3xl" />
+
+            <div className="absolute top-0 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl -mr-40 -mt-40" />
           </div>
         )}
       </div>

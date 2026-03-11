@@ -3,7 +3,7 @@ import JobDetails from './_components/JobDetails'
 
 const page = () => {
   return (
-    <div className="mt-16">
+    <div className="-16">
       <Suspense
         fallback={
           <div className="min-h-screen flex items-center justify-center bg-white">

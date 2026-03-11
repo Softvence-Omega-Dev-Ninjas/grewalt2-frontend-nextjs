@@ -21,10 +21,7 @@ const ContactSection = () => {
           </div>
 
           <h1 className="text-[40px] md:text-[54px] font-bold text-[#05183D] leading-[1.1] mb-12 tracking-tight">
-            Let&apos;s talk on <br /> something{" "}
-            <span className="text-[#2F8BDD]">
-              great <br /> together
-            </span>
+            Start Your <span className="text-[#2F8BDD]">Talent Strategy</span>
           </h1>
 
           {/* Contact Info List - Figma Accurate Glow */}
@@ -50,7 +47,7 @@ const ContactSection = () => {
                 </div>
               </div>
               <span className="text-[17px] font-medium text-slate-600 group-hover:text-[#2F8BDD] transition-colors">
-                TBC
+                +44 7784677243
               </span>
             </div>
 

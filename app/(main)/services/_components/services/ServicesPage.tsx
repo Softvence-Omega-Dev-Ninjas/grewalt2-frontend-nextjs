@@ -83,11 +83,11 @@ export default function ServicesPage() {
           </motion.p>
         </section>
 
-        <section className="">
+        <section className="max-w-7xl mx-auto">
           <div className="grid grid-cols-3 ">
-            <Image src={img2} alt="img" className="h-96 object-cover" />
-            <Image src={img3} alt="img" className=" h-96 object-cover" />
-            <Image src={img1} alt="img" className="h-96   object-cover" />
+            <Image src={img2} alt="img" className="h-76 object-cover" />
+            <Image src={img3} alt="img" className=" h-76 object-cover" />
+            <Image src={img1} alt="img" className="h-76   object-cover" />
           </div>
         </section>
 

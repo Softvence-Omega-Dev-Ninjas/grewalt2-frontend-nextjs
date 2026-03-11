@@ -305,44 +305,374 @@ export const JOBS_DATA = [
       ],
     },
   },
+ {
+  id: "senior-blockchain-defi-developer",
+  title: "Senior Blockchain DeFi Developer",
+  company: "Leading Crypto / DeFi Firm",
+  location: "Dubai, UAE",
+  workStyle: "On-Site",
+  level: "Senior Individual Contributor",
+  specialization: [
+    "DeFi Protocol Engineering",
+    "Tax-Free",
+    "DIFC / VARA Regulated Environment"
+  ],
+  description:
+    "We are partnering with a fast-scaling digital assets and DeFi business headquartered in Dubai to find a Senior Blockchain DeFi Developer. Operating within one of the world's most progressive crypto regulatory environments — backed by VARA (Virtual Assets Regulatory Authority) and the DIFC — this firm is building sophisticated decentralised finance infrastructure with genuine ambition and the backing to match.",
+  additionalInfo:
+    "Dubai has rapidly emerged as a global hub for Web3 talent and capital, and this role places you at the heart of it. If you are a senior blockchain engineer with deep DeFi expertise looking for your next major challenge in a tax-free, high-growth environment, we want to hear from you.",
+  roleInfo: {
+    title: "The Role",
+    content:
+      "As a Senior Blockchain DeFi Developer, you will be a cornerstone of the engineering team — owning the design, development, and deployment of DeFi protocols and smart contract infrastructure that underpin the firm's core product suite. You will work closely with product, research, and quant teams to bring complex financial primitives to life on-chain, ensuring they are secure, efficient, and built to scale. This is a hands-on senior individual contributor role with significant influence over technical direction."
+  },
+  responsibilities: [
+    {
+      category: "DeFi Protocol Engineering",
+      points: [
+        "Architect, develop, and deploy DeFi protocols including lending and borrowing markets, automated market makers (AMMs), yield aggregators, staking mechanisms, and liquidity provisioning systems.",
+        "Design robust tokenomics and incentive structures with product and research teams, translating economic models into on-chain smart contract logic.",
+        "Research and implement advanced DeFi mechanisms including concentrated liquidity, real-world asset (RWA) integration, and restaking.",
+        "Identify and mitigate economic attack vectors including flash loan exploits, oracle manipulation, sandwich attacks, and MEV exposure.",
+        "Conduct internal code reviews and collaborate with external auditors before protocol deployments."
+      ]
+    },
+    {
+      category: "Smart Contract Development",
+      points: [
+        "Write, test, and deploy production-grade smart contracts in Solidity with strong emphasis on security and gas optimisation.",
+        "Build comprehensive testing suites using Foundry or Hardhat including fuzz testing, invariant testing, and fork simulations.",
+        "Implement and extend token standards including ERC-20, ERC-4626, ERC-721, and ERC-1155.",
+        "Maintain technical documentation and internal knowledge bases for protocol design and architecture."
+      ]
+    },
+    {
+      category: "Protocol Integration & Infrastructure",
+      points: [
+        "Integrate leading DeFi protocols and oracle systems such as Chainlink, Pyth, and Uniswap TWAP.",
+        "Support backend infrastructure including indexers, subgraphs using The Graph, and event-driven analytics systems.",
+        "Contribute to cross-chain strategies including bridge integrations and multi-chain deployment patterns.",
+        "Participate in incident response, monitoring, and governance of live protocols."
+      ]
+    }
+  ],
+  requirements: [
+    {
+      title: "Core Requirements",
+      points: [
+        "5–8 years of software engineering experience with at least 4 years focused on blockchain and DeFi protocol development.",
+        "Expert-level Solidity with production smart contracts deployed on-chain.",
+        "Deep understanding of DeFi mechanics including AMMs, lending protocols, yield strategies, and liquidity systems.",
+        "Strong knowledge of smart contract security patterns and audit preparation processes.",
+        "Hands-on experience with Foundry or Hardhat including advanced testing strategies.",
+        "Experience with DeFi infrastructure such as Chainlink oracles, The Graph, OpenZeppelin, and Gnosis Safe.",
+        "Strong understanding of EVM internals and gas optimisation techniques.",
+        "A public GitHub portfolio or verifiable on-chain work."
+      ]
+    },
+    {
+      title: "Bonus Points",
+      points: [
+        "Experience with Rust-based blockchains such as Solana, Cosmos SDK, or Substrate.",
+        "Work on RWA tokenisation or on-chain derivatives protocols.",
+        "Contributions to open-source DeFi projects.",
+        "Familiarity with UAE / DIFC regulatory frameworks and VARA licensing."
+      ]
+    }
+  ],
+  offer: {
+    title: "What's on Offer",
+    benefits: [
+      "Highly competitive tax-free salary aligned with global Web3 compensation.",
+      "Token allocation or equity participation.",
+      "Visa sponsorship and relocation support.",
+      "On-site role in a Dubai office with access to the DIFC Web3 ecosystem.",
+      "Private healthcare and generous annual leave.",
+      "Professional development budget.",
+      "Low-bureaucracy culture with strong engineering ownership."
+    ]
+  }
+},
   {
-    id: "senior-blockchain-defi-developer",
-    title: "Senior Blockchain DeFi Developer",
-    company: "Leading Crypto / DeFi Firm",
-    location: "Dubai, UAE",
+    id: "senior-web3-fullstack-engineer",
+    title: "Senior Web3 Full Stack Engineer",
+    company: "Seed-Stage Web3 Startup",
+    location: "Zurich, Switzerland",
     workStyle: "On-Site",
-    level: "Senior Individual Contributor",
+    level: "Senior IC",
     specialization: [
-      "DeFi Protocol Engineering",
-      "Tax-Free",
-      "DIFC / VARA Regulated Environment",
+      "Smart Contracts",
+      "Solidity",
+      "Full Stack Web3",
+      "Crypto Valley",
     ],
     description:
-      "We are partnering with a fast-scaling digital assets and DeFi business headquartered in Dubai to find a Senior Blockchain DeFi Developer. Operating within one of the world's most progressive crypto regulatory environments — backed by VARA (Virtual Assets Regulatory Authority) and the DIFC — this firm is building sophisticated decentralised finance infrastructure with genuine ambition and the backing to match.",
+      "We are working exclusively with an exciting seed-stage Web3 startup based in Zurich in the heart of Switzerland's renowned Crypto Valley ecosystem. The company is building new decentralised infrastructure with a small founding team and is looking for a Senior Web3 Full Stack Engineer to play a major role in shaping the product from the ground up.",
     additionalInfo:
-      "Dubai has rapidly emerged as a global hub for Web3 talent and capital, and this role places you at the heart of it. If you are a senior blockchain engineer with deep DeFi expertise looking for your next major challenge in a tax-free, high-growth environment, we want to hear from you.",
+      "This is a rare early-stage opportunity to join a founding team with real influence over architecture, culture, and product direction while benefiting from early-stage equity upside.",
     roleInfo: {
       title: "The Role",
       content:
-        "As a Senior Blockchain DeFi Developer, you will be a cornerstone of the engineering team — owning the design, development, and deployment of DeFi protocols and smart contract infrastructure that underpin the firm's core product suite. You will work closely with product, research, and quant teams to bring complex financial primitives to life on-chain, ensuring they are secure, efficient, and built to scale. This is a hands-on senior individual contributor role with significant influence over technical direction. You will be expected to bring both engineering rigour and a genuine passion for decentralised finance to everything you build.",
+        "As one of the earliest engineering hires, you will own meaningful parts of the product stack from smart contracts to backend services and frontend dApp interfaces. You will work closely with founders, ship quickly, and make architectural decisions that shape the product’s long-term technical direction.",
     },
     responsibilities: [
       {
-        category: "DeFi Protocol Engineering",
+        category: "Smart Contract Development",
         points: [
-          "Architect, develop, and deploy DeFi protocols including lending and borrowing markets, automated market makers (AMMs), yield aggregators, staking mechanisms, and liquidity provisioning systems.",
-          "Design robust tokenomics and incentive structures in collaboration with the product and research teams, translating economic models into on-chain smart contract logic.",
-          "Research and implement cutting-edge DeFi mechanisms — including concentrated liquidity, real-world asset (RWA) integration, and restaking — keeping the firm at the forefront of protocol innovation.",
+          "Design and deploy production-grade smart contracts in Solidity across EVM-compatible networks.",
+          "Build modular, upgradeable smart contract architectures that evolve alongside the product.",
+          "Create comprehensive testing systems using Foundry or Hardhat including fuzz and invariant testing.",
+          "Work with external auditors to prepare contracts for security reviews and implement remediation.",
+        ],
+      },
+      {
+        category: "Full Stack Product Engineering",
+        points: [
+          "Build Web3 frontend applications using React or Next.js with wallet integrations such as MetaMask or WalletConnect.",
+          "Develop backend APIs and services using Node.js and TypeScript to connect on-chain and off-chain systems.",
+          "Create blockchain data pipelines and indexing infrastructure for real-time product functionality.",
+          "Ensure seamless interaction between smart contracts, backend services, and user-facing interfaces.",
+        ],
+      },
+      {
+        category: "Architecture & Engineering Culture",
+        points: [
+          "Contribute to system architecture decisions including chain selection and infrastructure design.",
+          "Maintain CI/CD pipelines and developer tooling to support a growing engineering team.",
+          "Help shape the engineering culture and development standards from the earliest stage of the company.",
         ],
       },
     ],
     requirements: [
       {
-        title: "Core Requirements",
+        title: "What We're Looking For",
         points: [
-          "Deep expertise in blockchain engineering and DeFi protocol development",
+          "5+ years of software engineering experience with at least 3 years in Web3 development.",
+          "Strong Solidity experience with verifiable smart contracts deployed to mainnet.",
+          "Full stack experience with React, Next.js, Node.js, TypeScript, and Web3 libraries.",
+          "Deep understanding of smart contract security practices and testing frameworks.",
+          "Comfortable working in fast-moving early-stage startup environments.",
+        ],
+      },
+      {
+        title: "Bonus Points",
+        points: [
+          "Previous experience as an early startup engineer.",
+          "Experience with DeFi protocol mechanics or governance systems.",
+          "Familiarity with ZK systems, rollups, or ERC-4337 account abstraction.",
+          "Active contributor to open-source Web3 projects.",
         ],
       },
     ],
+    offer: {
+      title: "What's on Offer",
+      benefits: [
+        "Competitive salary benchmarked to the Zurich engineering market.",
+        "Early-stage equity or token allocation.",
+        "Direct influence over product and architecture.",
+        "Work in Zurich's globally recognised Crypto Valley ecosystem.",
+        "25 days holiday and professional development budget.",
+      ],
+    },
+  },
+  {
+    id: "lead-principal-ai-engineer",
+    title: "Lead / Principal Artificial Intelligence Engineer",
+    company: "Big Four Consultancy",
+    location: "London, UK",
+    workStyle: "On-Site",
+    level: "Principal / Lead",
+    specialization: [
+      "LLMs",
+      "Generative AI",
+      "Enterprise AI Architecture",
+      "AI Strategy",
+    ],
+    description:
+      "We are retained by one of the world's leading Big Four consultancies to hire a Lead / Principal AI Engineer for their rapidly expanding AI practice in London. This role sits at the intersection of deep technical engineering and high-level strategic advisory for enterprise AI transformation.",
+    additionalInfo:
+      "You will work with major global organisations across financial services, government, healthcare, and energy to design and deliver large-scale generative AI solutions.",
+    roleInfo: {
+      title: "The Role",
+      content:
+        "As the most senior technical voice on engagements, you will architect enterprise AI systems built on large language models and generative AI technologies while advising senior client stakeholders on AI strategy and governance.",
+    },
+    responsibilities: [
+      {
+        category: "LLM & Generative AI Engineering",
+        points: [
+          "Design and deliver enterprise LLM systems from architecture to deployment.",
+          "Implement advanced patterns such as RAG pipelines, AI agents, and multimodal systems.",
+          "Evaluate foundation models including GPT, Claude, Gemini, and Llama.",
+          "Build production MLOps pipelines for LLM applications.",
+        ],
+      },
+      {
+        category: "AI Strategy & Advisory",
+        points: [
+          "Advise C-suite executives on AI adoption strategy and architecture decisions.",
+          "Translate complex business challenges into practical AI engineering solutions.",
+          "Design AI governance frameworks and responsible AI practices.",
+        ],
+      },
+      {
+        category: "Technical Leadership",
+        points: [
+          "Lead multidisciplinary teams of AI engineers and data scientists.",
+          "Define engineering standards and reusable frameworks for AI delivery.",
+          "Support business development and contribute to industry thought leadership.",
+        ],
+      },
+    ],
+    requirements: [
+      {
+        title: "What We're Looking For",
+        points: [
+          "8+ years of software or AI engineering experience.",
+          "Deep hands-on experience building LLM applications in production.",
+          "Strong Python and modern ML stack expertise including PyTorch and Hugging Face.",
+          "Experience with vector databases and LLM frameworks like LangChain.",
+          "Proven ability to lead technical teams and client engagements.",
+        ],
+      },
+    ],
+    offer: {
+      title: "What's on Offer",
+      benefits: [
+        "Work with global enterprise clients on cutting-edge AI initiatives.",
+        "Leadership role shaping large-scale AI strategy and deployment.",
+        "Opportunities for thought leadership and industry visibility.",
+        "Competitive compensation aligned with senior consultancy roles.",
+      ],
+    },
+  },
+  {
+    id: "rag-agentic-ai-engineer",
+    title: "RAG & Agentic AI Engineer",
+    company: "AI-Native Startup",
+    location: "San Francisco, USA",
+    workStyle: "Hybrid",
+    level: "Mid-Level",
+    specialization: [
+      "RAG Pipelines",
+      "Agentic AI",
+      "LLM Systems",
+      "Vector Databases",
+    ],
+    description:
+      "We are partnering with an AI-native startup in San Francisco building intelligent AI agents capable of retrieving, reasoning, and acting on complex information across real-world systems.",
+    additionalInfo:
+      "You will work on frontier applied AI problems, designing retrieval pipelines and autonomous AI agents that move beyond traditional prompt-response systems.",
+    roleInfo: {
+      title: "The Role",
+      content:
+        "You will design and build retrieval infrastructure and agent frameworks powering the company's core AI product, working closely with ML researchers and product teams to rapidly ship production AI systems.",
+    },
+    responsibilities: [
+      {
+        category: "RAG Pipeline Architecture",
+        points: [
+          "Design and optimise end-to-end RAG pipelines including ingestion, embedding, retrieval, and synthesis.",
+          "Build hybrid retrieval systems combining dense vector and keyword search.",
+          "Develop document pipelines handling PDFs, structured data, and web content.",
+          "Implement evaluation frameworks to measure retrieval quality and answer relevance.",
+        ],
+      },
+      {
+        category: "Agentic AI Systems",
+        points: [
+          "Develop autonomous AI agents using frameworks such as LangChain, LlamaIndex, or AutoGen.",
+          "Build tool integrations enabling agents to interact with APIs and external systems.",
+          "Design memory systems for persistent multi-step reasoning.",
+          "Create observability tools to debug and improve agent behaviour.",
+        ],
+      },
+    ],
+    requirements: [
+      {
+        title: "What We're Looking For",
+        points: [
+          "3–5 years of software engineering experience.",
+          "Hands-on experience building production RAG systems.",
+          "Strong Python engineering and LLM integration experience.",
+          "Experience with vector databases such as Pinecone or Weaviate.",
+          "Strong evaluation mindset for measuring AI system performance.",
+        ],
+      },
+    ],
+    offer: {
+      title: "What's on Offer",
+      benefits: [
+        "Work on frontier AI problems at an early-stage startup.",
+        "Direct collaboration with researchers and founding engineers.",
+        "Hybrid role in the San Francisco Bay Area.",
+        "High ownership and rapid product iteration.",
+      ],
+    },
+  },
+  {
+    id: "senior-ai-software-engineer",
+    title: "Senior AI Software Engineer",
+    company: "Saudi Government Institution",
+    location: "Riyadh, Saudi Arabia",
+    workStyle: "On-Site",
+    level: "Senior Engineer",
+    specialization: ["LLMs", "Generative AI", "Arabic NLP", "MLOps"],
+    description:
+      "We are partnering with a leading Saudi government institution to hire a Senior AI Software Engineer contributing to the Kingdom’s Vision 2030 national AI initiatives.",
+    additionalInfo:
+      "This role involves building AI systems used by government services and public sector platforms at national scale.",
+    roleInfo: {
+      title: "The Role",
+      content:
+        "You will develop and deploy advanced AI systems including Arabic language models, generative AI applications, and ML infrastructure that power public services and national digital initiatives.",
+    },
+    responsibilities: [
+      {
+        category: "LLMs & Generative AI",
+        points: [
+          "Build and deploy LLM applications for government use cases such as document intelligence and citizen assistants.",
+          "Implement RAG pipelines and agent-based workflows.",
+          "Evaluate and adapt foundation models including Arabic language models.",
+        ],
+      },
+      {
+        category: "ML Engineering & MLOps",
+        points: [
+          "Build scalable ML pipelines for training, evaluation, and deployment.",
+          "Develop CI/CD pipelines for machine learning systems.",
+          "Monitor production AI systems including drift detection and performance tracking.",
+        ],
+      },
+      {
+        category: "Arabic NLP",
+        points: [
+          "Develop Arabic NLP pipelines for classification, summarisation, and entity recognition.",
+          "Work with Arabic datasets and linguistic experts to improve model accuracy.",
+          "Address challenges such as dialect variation and right-to-left processing.",
+        ],
+      },
+    ],
+    requirements: [
+      {
+        title: "What We're Looking For",
+        points: [
+          "5+ years of software engineering experience with AI or ML systems.",
+          "Hands-on experience with large language models and RAG pipelines.",
+          "Strong Python skills with PyTorch and Hugging Face.",
+          "Experience building ML infrastructure and MLOps pipelines.",
+          "Arabic NLP experience is a strong advantage.",
+        ],
+      },
+    ],
+    offer: {
+      title: "What's on Offer",
+      benefits: [
+        "Work on national-scale AI systems under Vision 2030.",
+        "Opportunity to contribute to sovereign Arabic AI development.",
+        "Access to significant research infrastructure and funding.",
+        "Career-defining opportunity within a major national AI initiative.",
+      ],
+    },
   },
 ];
